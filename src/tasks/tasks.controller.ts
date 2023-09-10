@@ -19,6 +19,12 @@ import { TasksService } from './tasks.service';
 @Controller('tasks')
 export class TasksController {
   constructor(private tasksService: TasksService) {}
+
+  @Get('/hello')
+  hello(): string {
+    return 'Hello World!';
+  }
+
   @Get()
   getTasks(@Query(ValidationPipe) filterDto: GetTasksFilterDto): Task[] {
     if (Object.keys(filterDto).length)
